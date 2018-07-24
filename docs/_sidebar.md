@@ -1,2 +1,2 @@
 * [Firstday](daliy/first.md)
-* [Secondday](daliy/second)
+* [Secondday](daliy/second.md)
