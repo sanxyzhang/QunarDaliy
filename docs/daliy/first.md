@@ -26,6 +26,7 @@ docsify基础功能
 1.Sass是CSS预处理器的一种，compass是sass的工具库，Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。
 在此，两个大哥的安装概不赘述，监听编译等控制台指令，移步[这里](https://blog.csdn.net/Creabine/article/details/51728902).
 简述比较重要的几个指令` compass compile --output-style compressed `
+`compass watch` `compass create myproject`
 
 |  nested |   expanded|  compact | compressed  |
 | ------------ | ------------ | ------------ | ------------ |
@@ -48,6 +49,7 @@ a{
 h:色调 s:饱和度 l:亮度
 
 6.@mixin引用实现函数的复用
+
 7.@extend继承
 * extend不可以继承选择器序列;
 * 使用%,用来构建只用来继承的选择器;
