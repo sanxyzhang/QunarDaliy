@@ -75,3 +75,66 @@ console.log(a,b);
        running   指定正在运行的动画，默认
 ### 4.熟悉使用flex布局
 ### 5.学习使用节流去抖，并对3中滚动进行优化。
+#### 去抖
+```javascript
+window.debounce = function(fun,dely){ 
+    var timer = null; 
+    return function(){
+        var context = this;  
+        var args = arguments;  
+        if(timer) { clearTimeout(timer) }; // 看似多余的 但是是必须的 读者可以自己思考为什么需要这么处理
+        var doNow = !timer; // 判断是否有定时器，如果有，就dely后清除timer，否则立即执行；
+        timer = setTimeou(function(){
+            timer = null ;
+        },dely)
+        if(doNow){
+            fun.apply(context, args);
+        }
+    }
+}
+```
+#### 节流
+```javascript
+window.throttle = function(fun,delay){
+    var timer = null;
+    var startTime = Date.now();  
+
+    return function(){
+        var curTime = Date.now();
+        var remaining = delay-(curTime-startTime);  // 计算出两次触发的时间间隔有没有大余delay 
+        var context = this;
+        var args = arguments;
+
+        clearTimeout(timer);
+        if(remaining<=0){ 
+            func.apply(context,args);
+            startTime = Date.now();  // 如果两次触发时间大余delay，则立马触发一次任务函数并且更新起始时间戳
+        }else{
+            timer = setTimeout(fun,remaining);  // 如果两次触发时间小于delay， 则改变定时器时间保证delay时间一定触发任务函数
+        }
+    }
+}
+```
+#### 引用源码封装好的库
+```<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>```
+
+```_.debounce(func, [wait=0], [options={}])```
+
+lodash在opitons参数中定义了一些选项，主要是以下三个
+
+* leading，函数在每个等待时延的开始被调用，默认值为false
+* trailing，函数在每个等待时延的结束被调用，默认值是true
+* maxwait，最大的等待时间，因为如果debounce的函数调用时间不满足条件，可能永远都无法触发，因此增加了这个配置，保证大于一段时间后一定能执行一次函数
+根据leading和trailing的组合，可以实现不同的调用效果：
+* leading-false，trailing-true：默认情况，即在延时结束后才会调用函数
+* leading-true，trailing-true：在延时开始时就调用，延时结束后也会调用
+* leading-true, trailing-false：只在延时开始时调用
+deboucne还有cancel方法，用于取消防抖动调用
+总结
+* 防抖动debounce：将几次操作合并为一此操作进行。原理是维护一个计时器，规定在delay时间后触发函数，但是在delay时间内再次触发的话，就会取消之前的计时器而重新设置。这样一来，只有最后一次操作能被触发。
+* 函数包含debounce，还为debounce 传了一个 maxWait 选项，这个选项的意思是至少保证在每 maxWait 时间让 func 被调用一次。
+
+使用场景
+* input 中输入文字自动发送 ajax 请求进行自动补全： debounce
+* resize window 重新计算样式或布局：debounce
+* scroll 时更新样式，如随动效果：throttle
