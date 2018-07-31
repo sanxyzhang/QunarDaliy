@@ -45,6 +45,7 @@ required ref = {node => {input = node;}}
 this.props.onAddClick(input.value);
 
 ```
+
 ```javascript
 import React from 'react';
  
