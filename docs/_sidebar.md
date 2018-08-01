@@ -3,3 +3,6 @@
 * [Thirdday](daliy/third.md)
 * [Fourthday](daliy/fourth.md)
 * [Fifthday](daliy/fifth.md)
+* [Sixthday](daliy/sixth.md)
+* [Seventhday](daliy/seventh.md)
+* [Eighthday](daliy/eighth.md)
