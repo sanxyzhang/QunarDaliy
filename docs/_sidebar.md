@@ -6,3 +6,4 @@
 * [Sixthday](daliy/sixth.md)
 * [Seventhday](daliy/seventh.md)
 * [Eighthday](daliy/eighth.md)
+* [Ninthday](daliy/ninth.md)
