@@ -32,3 +32,15 @@ git checkout master
 git pull
 git merge master
 git push -u origin HEAD
+
+git checkout master
+git pull
+git branch branch-name 自己分支
+git merge master
+git push
+
+
+git add .
+git commit -m "info"
+git pull
+git push

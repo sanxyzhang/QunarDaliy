@@ -26,6 +26,30 @@
       repo: 'https://github.com/sanxyzhang'    
     }
   </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js">
+  initDate();
+  function initDate() {
+    var defaultDateStart = new Date();
+    var defaultDateEnd = new Date();
+    var formEl = $('#J_Form')[0];
+    defaultDateStart.setDate(defaultDateStart.getDate() - 7);
+    defaultDateEnd.setDate(defaultDateEnd.getDate() - 1);
+
+    $("input[name='refundFinishTimeS']").val(
+        defaultDateStart.getFullYear() + "-" + (defaultDateStart.getMonth() + 1) + "-" + defaultDateStart.getDate());
+    $("input[name='refundFinishTimeE']").val(
+        defaultDateEnd.getFullYear() + "-" + (defaultDateEnd.getMonth() + 1) + "-" + defaultDateEnd.getDate());
+    
+    Bone.DatePicker.datePickerRange(formEl.consumeBeginTime, formEl.consumeEndTime, {
+            "rules": '+1M,0'
+        });
+    Bone.DatePicker.datePickerRange(formEl.refundBeginTime, formEl.refundEndTime, {
+            "rules": '+1M,0'
+        });
+    Bone.DatePicker.datePickerRange(formEl.refundFinishTimeS, formEl.refundFinishTimeE, {
+            "rules": '+1M,0'
+        });
+}
+  </script>
 </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button>跳转新页面</button>
+    <marquee behavior="scroll" direction="right" loop="Infinite" scrollamount="10"  bgcolor="red">
+        通知，现在是滚动文字开发！
+    </marquee>
+    <div class="nui-scroll">
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+        123<br/>
+      
+    </div>
+</body>
+<script>
+    $("button").on('click',function(){
+        window.open("https://www.baidu.com","_blank", 'height=100, width=400, top=0, left=0, toolbar=yes, menubar=yes, scrollbars=yes, resizable=no, location=no, status=no');
+    })
+</script>
+<style type="text/css">
+    .nui-scroll{
+        margin-left: 100px;
+        border: 1px solid #000; 
+        width: 200px;
+        height: 500px;
+        overflow: scroll;
+    }
+    
+</style>
+</html>

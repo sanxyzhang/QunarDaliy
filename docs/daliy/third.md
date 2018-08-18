@@ -38,13 +38,7 @@ function todos(state = [], action) {
  })
 ```
 #### React的refs绑定函数和绑定字符串，推荐使用绑定函数
-绑定函数
-core code
-```javascript
-required ref = {node => {input = node;}}
-this.props.onAddClick(input.value);
 
-```
 
 ```javascript
 import React from 'react';
