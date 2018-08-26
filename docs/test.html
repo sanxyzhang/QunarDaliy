@@ -8,40 +8,36 @@
     <title>Document</title>
 </head>
 <body>
-    <button>跳转新页面</button>
-    <marquee behavior="scroll" direction="right" loop="Infinite" scrollamount="10"  bgcolor="red">
-        通知，现在是滚动文字开发！
-    </marquee>
-    <div class="nui-scroll">
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-        123<br/>
-      
-    </div>
+    
 </body>
 <script>
-    $("button").on('click',function(){
-        window.open("https://www.baidu.com","_blank", 'height=100, width=400, top=0, left=0, toolbar=yes, menubar=yes, scrollbars=yes, resizable=no, location=no, status=no');
-    })
+function child(){
+    console.log("child");
+}
+function sister(){
+      console.log("sister");
+      console.log(this);
+}.call(this);
+
 </script>
-<style type="text/css">
-    .nui-scroll{
-        margin-left: 100px;
-        border: 1px solid #000; 
-        width: 200px;
-        height: 500px;
-        overflow: scroll;
+<!-- <script>
+    var msg="hello";
+    (function(msg){
+    this.msg = msg;
+    this.shout = function(){
+        console.log(this.msg);
+    }  
+    this.waitAndShout = function(){
+        //隔五秒钟后执行上面的shout方法
+        setTimeout(function () {
+            var self=this;
+            return function() {
+                self.shout();
+            }
+        }.call(this),5000);
     }
-    
-</style>
+})();
+
+
+</script> -->
 </html>

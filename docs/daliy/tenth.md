@@ -88,7 +88,7 @@ console.log(numbers,newNumbers);//[[1,2]] [[1,2]]
 numbers[0][0] = 0;
 console.log(numbers,newNumbers);//[[0,2]] [[0,2]]
 ```
-##### slice
+##### slice 原数组没有发生变化
 slice(start,end)方法需要两个参数start和end，返回这个数组中从start位置到(但不包含)end位置的一个子数组；如果end为undefined或不存在，则返回从start位置到数组结尾的所有项
 
 如果start是负数，则start = max(length + start,0)
@@ -96,7 +96,7 @@ slice(start,end)方法需要两个参数start和end，返回这个数组中从st
 
 **如果不提供参数，slice()方法返回当前数组的一个浅拷贝**
 
-##### splice
+##### splice 原数组发生了变化
 splice()返回一个由删除元素组成的数组，或者如果没有删除元素就返回一个空数组。
 
 第二个参数number指定了应该从数组中删除的元素的个数。如果省略第二个参数，从起始点开始到数组结尾的所有元素都将被删除。
