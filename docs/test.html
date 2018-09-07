@@ -11,33 +11,45 @@
     
 </body>
 <script>
-function child(){
-    console.log("child");
+var n=0;
+// function debounce(method,delay){
+//     var timer=null;
+//     return function(){
+//         clearTimeout(timer);
+//         timer=setTimeout(method,delay);
+//         }
+// }
+function debounce(method,delay){
+     var timer=null;
+      return function(){
+           var context=this, args=arguments;
+           console.log(args);
+           clearTimeout(timer);
+           timer=setTimeout(function(){
+               method.apply(context,args);
+           },delay);
+       }
 }
-function sister(){
-      console.log("sister");
-      console.log(this);
-}.call(this);
+/**函数节流**/
+
+function throttle(method,duration){
+        var  begin=new Date();
+        console.log(begin);
+        return function(){
+            var context=this, args=arguments, current=new Date();
+            console.log(current);
+            if(current-begin>=duration){
+                 method.apply(context,args);
+                 begin=current;
+            }
+        }
+}
+function resizehandler(){
+    console.log(++n);
+}
+window.onkeyup=throttle(resizehandler,2000);
 
 </script>
-<!-- <script>
-    var msg="hello";
-    (function(msg){
-    this.msg = msg;
-    this.shout = function(){
-        console.log(this.msg);
-    }  
-    this.waitAndShout = function(){
-        //隔五秒钟后执行上面的shout方法
-        setTimeout(function () {
-            var self=this;
-            return function() {
-                self.shout();
-            }
-        }.call(this),5000);
-    }
-})();
 
 
-</script> -->
 </html>

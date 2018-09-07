@@ -1,53 +1,21 @@
-import { Upload, Icon, Modal } from 'antd';
-
-class PicturesWall extends React.Component {
-  state = {
-    previewVisible: false,
-    previewImage: '',
-    fileList: [{
-      uid: '-1',
-      name: 'xxx.png',
-      status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    }],
+function isPrimeNum(num){
+  for (var i = 2; i < num; i++) {
+  if (num%i==0){
+  return false;
+  }
   };
-
-  handleCancel = () => this.setState({ previewVisible: false })
-
-  handlePreview = (file) => {
-    this.setState({
-      previewImage: file.url || file.thumbUrl,
-      previewVisible: true,
-    });
+  return true;
   }
-
-  handleChange = ({ fileList }) => this.setState({ fileList })
-
-  render() {
-    const { previewVisible, previewImage, fileList } = this.state;
-    const uploadButton = (
-      <div>
-        <Icon type="plus" />
-        <div className="ant-upload-text">Upload</div>
-      </div>
-    );
-    return (
-      <div className="clearfix">
-        <Upload
-          action="//jsonplaceholder.typicode.com/posts/"
-          listType="picture-card"
-          fileList={fileList}
-          onPreview={this.handlePreview}
-          onChange={this.handleChange}
-        >
-          {fileList.length >= 3 ? null : uploadButton}
-        </Upload>
-        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-          <img alt="example" style={{ width: '100%' }} src={previewImage} />
-        </Modal>
-      </div>
-    );
-  }
+function sumNum(n){
+    var first=1;
+    var sum=0;
+    for(var i=1;i<n;i++){
+      if(isPrimeNum(first)){
+        sum+=first;
+      }
+      first=first+2;
+    }
+    return sum;
 }
 
-ReactDOM.render(<PicturesWall />, mountNode);
+console.log(sumNum(4))

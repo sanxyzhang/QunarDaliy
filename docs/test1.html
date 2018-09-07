@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>练习</title>
+<meta name="viewport"content="width=device-width,initial-scale=1.0">
+<style type="text/css">
+.container{
+display: flex;
+flex-wrap:wrap;
+}
+.box{
+width: 100%;
+}
+.dark_blue{
+height: 200px;
+width: 100%;
+background: blue;
+}
+.light_blue{
+height: 200px;
+width: 100%;
+background: rgb(117, 117, 238);
+}
+.green{
+height: 200px;
+width: 100%;
+background: rgb(19, 230, 36);
+}
+@media screen and(min-width:400px){
+.dark_blue{
+width:20%;
+}
+.light_blue{
+width:80%;
+}
+}
+@media screen and (min-width: 401px) and (max-width: 959px){
+.dark_blue{
+width:50%;
+}
+.light_blue{
+width:50%;
+}
+}
+@media screen and (min-width: 960px) and (max-width: 1199px){
+.dark_blue{
+width:80%;
+}
+.light_blue{
+width:20%;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="box dark_blue"></div>
+<div class="box light_blue"></div>
+<div class="box green"></div>
+</div>
+</body>
