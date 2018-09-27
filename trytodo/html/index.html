@@ -1,0 +1,501 @@
+
+
+
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>值机管理页面</title>
+    <link rel="stylesheet" href="http://q.qunarzz.com/fuwu_bone/prd/styles/release/list_v5.css">
+ 
+<style>
+<!--
+.table-list {
+    width: 100%;
+}
+.table-list .table-hd th {
+    padding: 5px 0;
+    line-height: 20px;
+    background-color: #c1e4fe;
+    color: #333;
+    text-align: center;
+    border-right: 2px #fff solid;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+}
+user agent stylesheet
+table {
+    display: table; 
+    border-color: grey;
+}
+
+.g-btn-special {
+    display: inline-block;
+    min-width: 100px;
+    height: 27px;
+    overflow: visible;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    resize: none;
+    outline: 0;
+    border: 0 none;
+    background: #52a3e2;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+.mod-op-btn {
+    padding: 20px;
+    text-align: right;
+}
+.g-btn-special span {
+    font-size: 14px;
+    line-height: 27px;
+    color: #fff;
+}
+
+-->
+</style>
+
+
+</head>
+<body>
+
+
+<div id="doc" class="wrapperbox">
+    <!-- 表单部分 -->
+    <div class="m-search g-clear">
+        <form action="http://wiki.corp.qunar.com/display/FlightFE/fuwu_bone+api" id="J_Form" method="post">
+            <input type="hidden" name="domain" value="ifuwu.qunar.com">
+            <div class="rows">
+                <div class="col">
+                    <span class="label">订单日期 </span>
+	                     <div class="qcbox start-date">
+	                            <input type="text"  name="orderStartDate" value="" class="cinput" autocomplete="off" maxlength="10"/>
+	                        </div>
+	                        <span class="split">至</span>
+	
+	                        <div class="qcbox stop-date">
+	                            <input type="text" name="orderEndDate" value="" class="cinput" autocomplete="off" maxlength="10"/>
+	                     </div> 
+                </div>
+            </div>
+            <div class="rows">
+                <div class="col">
+                    <span class="label">起飞日期 </span>
+	                     <div class="qcbox start-date">
+	                            <input type="text"  name="depStartDate" value="2018-09-27" class="cinput" autocomplete="off" maxlength="10"/>
+	                        </div>
+	                        <span class="split">至</span>
+	
+	                        <div class="qcbox stop-date">
+	                            <input type="text" name="depEndDate" value="2019-09-27" class="cinput" autocomplete="off" maxlength="10"/>
+	                     </div> 
+                </div>
+                
+            </div>
+
+            <div class="rows">
+                <div class="col">
+                    <span class="label">产品类型:</span>
+                    <div class="label-info">
+                        <span class="g-select">
+                            <select id="serviceTypeSelector" name="serviceType" onchange="serviceTypeChanged()">
+                             	<option value=""  selected="selected">全部</option>
+                                <option value="1">值机 </option>
+                                <option value="2">行李 </option>
+                                <option value="4">餐食 </option>
+                                <option value="6">选座</option>
+                                <option value="9">wifi</option>
+                                <option value="7">退票包</option>
+                                <option value="10">更正姓名</option>
+                                <option value="11">更正证件号</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+               </div>
+  
+            <div class="rows">
+                <div class="col">
+                    <span class="label">订单号 </span>
+                    <div class="qcbox">
+                        <input type="text" name="userOrderNo" value="">
+                    </div>
+                </div>
+                <div class="col">
+                    <span class="label">乘机人姓名 </span>
+                    <div class="qcbox">
+                        <input type="text" name="passengerName" value="">
+                    </div>
+                </div>
+                 
+            </div>
+            <div class="rows">
+            	<div class="col">
+                    <span class="label">代理商订单号 </span>
+                    <div class="qcbox">
+                        <input type="text" name="otaOrderNo" value="">
+                    </div>
+                </div>
+            
+                <div class="col">
+                    <span class="label">航司二字码 </span>
+                    <div class="qcbox">
+                        <input type="text"   name="carrier" value="">
+                    </div>
+                </div>
+               
+                 
+            </div>
+            
+            <div class="rows">
+                <div class="col">
+                    <span class="label">状态:</span>
+                    <div class="label-info">
+                        <span class="g-select">
+                        <!-- 只改这里没有用，需要修改defaultSelection -->
+                            <select name="ckstatus" id="ckstatus" >
+                                <option value="">全部</option>
+                                <option value="0" selected="selected">未处理</option>
+                                <option value="1">已分账 </option>
+                                <option value="3">已处理 </option>
+                                <option value="2">已退款 </option>
+                                <option value="4">可处理 </option>
+                                <option value="5">已过期 </option>
+                                <option value="6">自动处理中 </option>
+                                <option value="7">自动处理失败 </option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <span class="label">售卖来源:</span>
+                    <div class="label-info">
+                        <span class="g-select">
+                            <select name="saleSource" id="saleSource" >
+                                <option value="all" selected="selected">全部</option>
+                                <option value="pikachu">二次售卖</option>
+                                <option value="">搭售</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <span class="label">紧急程度:</span>
+                    <div class="label-info">
+                        <span class="g-select">
+                            <select name="level" id="level" >
+                                <option value="0" selected="selected">全部</option>
+                                <option value="1">特急</option>
+                                <option value="2">紧急</option>
+                                <option value="3">一般</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <span class="label">订单来源:</span>
+                    <div class="label-info">
+                        <span class="g-select">
+                            <select name="serviceProvider" id="serviceProvider" >
+                                <option value="-1" selected="selected">全部</option>
+                                <option value="1">自营订单</option>
+                                <option value="0">直派订单</option>
+                                <option value="3">兜底订单</option>
+                                <option value="4">数据源兜底订单</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <span class="label"> </span>
+                    <div class="label-info">
+                        <span class="g-btn-special doSearchBtn" >
+                         	<span class="doSearchBtn"  >查询</span>  
+                        </span>
+                    </div>
+                 </div> 
+                 <div class="col">
+                     <div class="label-info">
+                        <span class="g-btn-special  " >
+                         	 <button type="button" id="J_export" class="g-btn"><span>导出Execl</span></button>
+                        </span>
+                    </div>   
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="m-searchlist">
+    
+    <br>
+     <div id="J_Grid"></div> 
+    <br>
+    </div>
+</div>
+<script src="http://q.qunarzz.com/jquery/prd/jquery-1.8.3.js"></script>
+<script src="http://q.qunarzz.com/fuwu_bone/prd/scripts/release/bone_v5.js"></script>
+ <script src="http://q.qunarzz.com/fuwu_bone/prd/scripts/release/list_v5.js"></script>
+<script type="text/javascript">
+
+
+$(function(){
+	
+
+	
+    var export_max_limit = "5000";
+	$(".doSearchBtn").click(function(){
+		$("#J_Form").submit();
+	});
+	//导出
+	$("#J_export").click(function() {
+	    var url = "/checkInApi/ittscheckin/mgr/export?"+ $("#J_Form").serialize();
+	    alert("配置最多支持"+export_max_limit+"条记录，如果需要增加请联系开发更改qconfig");
+	    window.open(url);
+	   
+	});
+	
+	//初始化日期控件
+	 var formEl = $('#J_Form')[0];
+	 if (formEl) {
+	     var startEl = formEl.depStartDate,
+	             endEl = formEl.depEndDate,
+	             depStartDateEl=formEl.depStartDate,
+	             depEndDateEl=formEl.depEndDate;
+	     
+	     Bone.DatePicker.datePickerRange(startEl, endEl, {});
+	  
+	     Bone.DatePicker.datePicker(depStartDateEl, {"rules": '+0D,+0D,+0D',"allowBlank":true});
+	     Bone.DatePicker.datePicker(depEndDateEl, {"rules": '+366D,+0D,+0D',"allowBlank":true});
+	     
+	 }
+	 
+	
+});
+</script>
+
+<script type="text/javascript">
+PageConfig  = {
+	    url: "/result",
+	    gridEl: '#J_Grid',
+	    limit:20,
+	    method:'post',
+	    cols:[
+            {title:'紧急程度',dataIndex: 'levelStr',widthLen: 50},
+	        {title:'订单号',dataIndex: 'userOrderNo',widthLen: 50},
+            {title:'代理商订单号',dataIndex: 'otaOrderNo',widthLen: 50},
+            {title:'辅营订单号',dataIndex: 'subOrderNo',widthLen: 50},
+            /* // {title:'票号',dataIndex: 'ticketNum',widthLen: 50}, */
+           /* // {title:'PNR',dataIndex: 'pnr',widthLen: 50}, */
+	        {title:'乘客姓名',dataIndex: 'passengerName',widthLen: 50},
+            /* //{title:'乘客证件号',dataIndex: 'cardNo',widthLen: 50}, */
+           /* //{title:'航班号',dataIndex: 'flightNum',widthLen: 50}, */
+	        {title:'订单日期',dataIndex: 'createDateTimeStr',widthLen: 70},
+	        {title:'起飞/到达',dataIndex: 'depArrav',widthLen: 50},
+	        {title:'起飞日期',dataIndex: 'departDateTimeStr',widthLen: 50},
+	        {title:'航司',dataIndex: 'carrier',widthLen: 50},
+	        {title:'成交价',dataIndex: 'price',widthLen: 50},
+	        {title:'服务说明',dataIndex: 'serviceDetail',widthLen: 50},
+            {title:'售卖来源',dataIndex: 'saleSourceDesc',widthLen: 50},
+	        {title:'状态',dataIndex: 'ckStatusStr',widthLen: 50},
+	        {title:'处理方',dataIndex: 'ckType',widthLen: 50},
+            {title:'产品类型',dataIndex: 'serviceTypeStr',widthLen: 50},
+            {title:'开始办理时间',dataIndex: 'startOptTime',widthLen: 50},
+            {title:'结束办理时间',dataIndex: 'endOptTime',widthLen: 50},
+	        {title:'操作',dataIndex: 'operationHtml',widthLen: 150},
+	    ]
+};
+</script>
+<script type="text/javascript">
+function openTab(conf) {     
+	if( top.tabs ) {         
+		top.tabs.open(conf);     
+	}else{         
+		window.open( conf.url , conf.sid );     
+	} 
+};
+
+
+</script>
+<script type="text/javascript">
+    function confirmAct(orderNo,recordId)
+    {
+        if(confirm('是否已处理完行李服务?'))
+        {
+            buyLuggage(orderNo,recordId);
+            return true;
+        }
+        return false;
+    }
+
+    function mealConfirmAct(orderNo,recordId)
+    {
+        if(confirm('是否已处理完餐食服务?'))
+        {
+            buyMeal(orderNo,recordId);
+            return true;
+        }
+        return false;
+    }
+
+
+    function doOpenHandlerTab(id,urlStr){
+	openTab({     sid: 'upload4Checkin'+id,      
+		title: '处理值机',     reload: true,     
+		url: urlStr
+	});
+   }
+
+function doOpenViewTab(id,urlStr){
+	openTab({     sid: 'viewDetail'+id,      
+		title: '订单详情',     reload: true,     
+		url: urlStr
+	});
+}
+function buyLuggage(orderNo,recordId) {
+    var params={};
+    params['orderNo']=orderNo;
+    params['recordIds']=recordId;
+    params['source']="ndc";
+    var servletUrl= "/checkInApi/luggageOperate/buy";
+    $.ajax({url:servletUrl,type:"post",
+        data:params,
+        dataType: "json",
+        beforeSend: function(){
+        },
+        success:function(data){
+            if(data.ret != null && data.ret){
+                $("#J_Form").submit();
+            } else {
+                alert("处理失败");
+            }
+        },
+        error:function(){
+            alert("处理失败");
+        }
+    });
+}
+
+function refundConfirmAct(subOrderNo,recordId,source,action) {
+    if(confirm('是否确认退款?'))
+    {
+        refund(subOrderNo,recordId,source,action);
+        return true;
+    }
+    return false;
+}
+
+function refund(subOrderNo,recordId,source,action) {
+    var params={};
+    params['orderNo'] = subOrderNo;
+    params['recordId']=recordId;
+    params['source']=source;
+    params['action']=action;
+    var servletUrl= "/checkInApi/auth/refund";
+    $.ajax({url:servletUrl,type:"post",
+        data:params,
+        dataType: "json",
+        beforeSend: function(){
+        },
+        success:function(data){
+            if(data.ret != null && data.ret){
+                $("#J_Form").submit();
+            } else {
+                alert("退款失败");
+            }
+        },
+        error:function(){
+            alert("退款失败");
+        }
+    });
+}
+
+function buyMeal(orderNo,recordId) {
+    var params={};
+    params['subOrderNo']=orderNo;
+    params['recordIds']=recordId;
+    params['source']="ndc";
+    var servletUrl= "/checkInApi/auth/meal/buy";
+    $.ajax({url:servletUrl,type:"post",
+        data:params,
+        dataType: "json",
+        beforeSend: function(){
+        },
+        success:function(data){
+            if(data.ret != null && data.ret){
+                $("#J_Form").submit();
+            } else {
+                alert("处理失败");
+            }
+        },
+        error:function(){
+            alert("处理失败");
+        }
+    });
+}
+</script>
+<div id="defaultSelections" style="visibility: hidden;">
+   								<option value="">全部</option>
+                                <option value="0" selected="selected">未处理</option>
+                                <option value="1">已分账 </option>
+                                <option value="3">已处理 </option>
+                                <option value="2">已退款 </option>
+                                <option value="4">可处理 </option>
+                                <option value="5">已过期 </option>
+                                <option value="6">自动处理中 </option>
+                                <option value="7">自动处理失败 </option>
+</div>
+<div id="refundPkgSelections" style="visibility: hidden;">
+   								<option value="">全部</option>
+                                <option value="0" selected="selected">未处理</option>
+                                <option value="1">已处理 </option>
+                                <option value="3">已分账 </option>
+                                <option value="2">已退款 </option>
+                                <option value="4">待理赔 </option>
+</div>
+
+<script type="text/javascript">
+function serviceTypeChanged(){
+	
+	
+	var val=$("#serviceTypeSelector").val()+"";
+	log(val);
+	var htmls="";
+	switch(val){
+		case "7":
+		htmls= $("#refundPkgSelections").html() ;
+		log(htmls);
+		break;
+		
+	    default :
+		htmls= $("#defaultSelections").html() ;
+	    log(htmls);
+	    
+		break;
+	}
+	$("#ckstatus").html(htmls);
+	
+}
+</script>
+
+<script type="text/javascript">
+function log(msg){
+	try{
+		console.info("msg|"+msg);
+	}
+	catch(E){}
+}
+</script>
+</body>
+</html>
