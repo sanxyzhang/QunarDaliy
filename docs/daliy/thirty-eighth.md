@@ -1,10 +1,4 @@
 ### 一.查看线上node日志
-1. ssh sanxy.zhang@l-rtools1.ops.cn2.qunar.com
-2. 输入password+token
-3. ssh l-fsoinner2.f.cn2
-4. 输入passphrase     0|,p5s37o1ov8*>
-5. cd /home/q/www/工程名/logs
-6. tail -f 日志文件
 
 ### 二.浏览器渲染性能
 #### 浏览器运行机制

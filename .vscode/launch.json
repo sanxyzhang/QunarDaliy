@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/trytodo/笔试题/事件代理闭包.js"
+            "program": "${workspaceFolder}/trytodo/笔试题/es5,6继承.js"
         },
         {
             "type": "node",

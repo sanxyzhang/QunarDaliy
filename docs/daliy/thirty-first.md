@@ -38,6 +38,7 @@ console.log(child2.names); // ["kevin", "daisy"]
 * 2.可以在 Child 中向 Parent 传参
 
 ### 3.原型链和构造函数组合继承
+
 ```javascript
 function Parent (name) {
   this.name = name;
@@ -72,6 +73,7 @@ console.log(child2.colors); // ["red", "blue", "green"]
 
 ### 4.混合继承还能改进！
 * 上周的日报上有new的过程
+
 ```javascript
 var a=new myFunction("Li","Cherry");
 new myFunction{
@@ -89,6 +91,7 @@ Child.prototype = new Parent();
 var child1 = new Child('kevin', '18');
 
 * 解决思路：不用Child.prototype = new Parent() ，而是间接的让 Child.prototype 访问到 Parent.prototype
+
 ```javascript
 function Parent (name) {
   this.name = name;

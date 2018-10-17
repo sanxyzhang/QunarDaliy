@@ -39,4 +39,9 @@
 * [Thirty-ninth](daliy/thirty-ninth.md)
 * [Fourty](daliy/fourty.md)
 * [Fourty-first](daliy/fourty-first.md)
-* 
+* [Fourty-second](daliy/fourty-second.md)
+* [Fourty-third](daliy/fourty-third.md)
+* [Fourty-fourth](daliy/fourty-fourth.md)
+* [Fourty-fifth](daliy/fourty-fifth.md)
+* [Fourty-sixth](daliy/fourty-sixth.md)
+* [Fourty-seventh](daliy/fourty-seventh.md)

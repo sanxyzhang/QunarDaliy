@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="target">
+        <p>hello</p>
+        <p>world</p>
+    </div>
+    <div id="add">add</div>
+</body>
+<script>
+    var div = document.getElementById("target");
+    if(div.nodeType==1){
+        value = div.nodeName;
+    }
+    console.log(div.childNodes.length);
+    var add = document.getElementById("add");
+    div.childNodes[6]=add;
+    console.log(div.childNodes.length);
+
+</script>
+</html>

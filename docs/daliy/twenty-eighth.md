@@ -41,11 +41,9 @@ const readFileArray = function(file,cb=()=>{}){
         fs.readFile(file,function(err,data){
             if(err){
                 reject(err);
-                return cb(err);
             }
             const lines=data.toString().trim().split('\n');
             resolve(lines);
-            cb(null,lines);
         })
     })
 }

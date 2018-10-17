@@ -25,6 +25,7 @@ for(var i in arrTmp){
 ```
 2. forEach数组遍历专有
 * jquery的each方法 index和value与原生的forEach方法位置颠倒
+
 ```javascript
 $.each(arrTmp,function(index,value){
     console.log(index+": "+value)
@@ -42,6 +43,7 @@ arrTmp.forEach(function(value,index,array){
 
 4. for...of 返回类对象的键值
 * for...of语句在可迭代对象(包括 Array, Map, Set, String, TypedArray，arguments 对象等等)上创建一个迭代循环，对每个不同属性的属性值,调用一个自定义的有执行语句的迭代挂钩
+
 ```javascript
 let iterable = new Map([["a", 1], ["b", 2], ["c", 3]]);
 for (let [key, value] of iterable) {
@@ -57,6 +59,7 @@ for (let value of iterable) {
 //输出 "c" "h" "i" "n" "a" "中" "国"
 ```
 5. Object.keys() 返回数组或对象的键名
+
 ```javascript
 //数组类型
 let arr = ["a", "b", "c"];
