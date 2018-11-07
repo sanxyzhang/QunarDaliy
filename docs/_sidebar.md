@@ -45,3 +45,7 @@
 * [Fourty-fifth](daliy/fourty-fifth.md)
 * [Fourty-sixth](daliy/fourty-sixth.md)
 * [Fourty-seventh](daliy/fourty-seventh.md)
+* [Fourty-eighth](daliy/fourty-eighth.md)
+* [Fourty-ninth](daliy/fourty-ninth.md)
+* [Fifty](daliy/fifty.md)
+* [Fifty-first](daliy/fifty-first.md)

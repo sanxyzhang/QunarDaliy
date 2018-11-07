@@ -1,0 +1,24 @@
+<html>
+<head>
+<script type="text/javascript">
+function getValue()
+  {
+    bar : 1,
+    eventBind: function(){
+        var _this = this;
+        $('.someClass').on('click',function(event) {
+            /* Act on the event */
+            console.log(_this.bar);     //1
+        });
+    }
+    alert(x.innerHTML)
+  }
+</script>
+</head>
+<body>
+
+<h1 id="myHeader" onclick="getValue()">This is a header</h1>
+<p>Click on the header to alert its value</p>
+
+</body>
+</html>
