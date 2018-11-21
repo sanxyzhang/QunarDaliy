@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    function debounce(fn,delay){
+        let timer = null;
+        return function(){
+            let context = this,
+            args = arguments;
+            if(timer){
+            clearTimeout(timer);
+            }
+
+            timer = setTimeout(function(){
+                fn.apply(context,arguments)
+            },delay)
+        }
+    }
+
+    document.addEventListener("scroll",debounce(()=>{console.log("ahhaha")},1000))
+</script>
+<body>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+    <ul>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+        <li>hahahah哈哈哈哈</li>
+    </ul>
+</body>
+</html>
