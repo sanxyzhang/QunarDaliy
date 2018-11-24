@@ -35,6 +35,7 @@
   *                        pretend that paths removed since <tree-ish> are still present
   *  --abbrev[=<n>]        use <n> digits to display SHA-1s
   *  --debug               show debugging data
+
 #### git cat-file:取出数据
  *  -t                    show object type
  *  -s                    show object size
@@ -45,3 +46,6 @@
  *  --path <blob>         use a specific path for --textconv/--filters
  *  --allow-unknown-type  allow -s and -t to work with broken/corrupt objects
  *  --buffer              buffer --batch output
+
+#### 一个空的文件夹是否能添加到 git 项目中？
+答：不可以。因为 git 使用的索引机制，是以文件为gi最小单位存储内容，跟踪变化的。 那么怎么做才可以使这个文件夹存在呐？通常的做法是在里面新建一个名为 .gitkeep 的文件。
