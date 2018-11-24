@@ -7,84 +7,84 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-//     for(var i=0;i<5;i++){
-//         var btn=document.createElement('button');
-//         btn.appendChild(document.createTextNode('button'+i));
-//         btn.addEventListener('click',(function(i){
-//             return function(){console.log(i);};
-//         })(i));
-//     }    
-//     ['a', 'b', 'c', 'd', 'e'].forEach(function (value, i) {
-//      var btn = document.createElement('button');
-//      btn.appendChild(document.createTextNode('Button ' + i));
-//      btn.addEventListener('click', function() { console.log(i); });
-//      document.body.appendChild(btn);
-//     });
-//     for (let i = 0; i < 5; i++) {
-//     var btn = document.createElement('button'); 
-//     btn.appendChild(document.createTextNode('Button ' + i));
-//     btn.addEventListener('click', function(){ console.log(i); });
-//     document.body.appendChild(btn);
+<script>
+    //     for(var i=0;i<5;i++){
+    //         var btn=document.createElement('button');
+    //         btn.appendChild(document.createTextNode('button'+i));
+    //         btn.addEventListener('click',(function(i){
+    //             return function(){console.log(i);};
+    //         })(i));
+    //     }
+    //     ['a', 'b', 'c', 'd', 'e'].forEach(function (value, i) {
+    //      var btn = document.createElement('button');
+    //      btn.appendChild(document.createTextNode('Button ' + i));
+    //      btn.addEventListener('click', function() { console.log(i); });
+    //      document.body.appendChild(btn);
+    //     });
+    //     for (let i = 0; i < 5; i++) {
+    //     var btn = document.createElement('button');
+    //     btn.appendChild(document.createTextNode('Button ' + i));
+    //     btn.addEventListener('click', function(){ console.log(i); });
+    //     document.body.appendChild(btn);
 
-// }
-var verfunegt = function (ver1,ver2) { 
+    // }
+    var verfunegt = function (ver1, ver2) {
 //开头不是为字母
-if(parseInt(ver1.charAt(0))<=9&&parseInt(ver2.charAt(0))<=9){
-    var ver1pre = parseFloat(ver1);
-    var ver2pre = parseFloat(ver2);
-    var ver1next =  ver1.replace(ver1pre + ".","");
-    var ver2next =  ver2.replace(ver2pre + ".","");
-    if(ver1pre > ver2pre){
-        return true;
-    }else if(ver1pre < ver2pre){
-        return false;
-    }else{
-        if(ver1next >= ver2next){
-            return true;
-        }else{
-            return false;
+        if (parseInt(ver1.charAt(0)) <= 9 && parseInt(ver2.charAt(0)) <= 9) {
+            var ver1pre = parseFloat(ver1);
+            var ver2pre = parseFloat(ver2);
+            var ver1next = ver1.replace(ver1pre + ".", "");
+            var ver2next = ver2.replace(ver2pre + ".", "");
+            if (ver1pre > ver2pre) {
+                return true;
+            } else if (ver1pre < ver2pre) {
+                return false;
+            } else {
+                if (ver1next >= ver2next) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         }
-    }
-}
 //开头是字母
-else{    
-  for(i=0;i<ver1.length;i++){
-        if(parseInt(ver1.charAt(i))<=9){
-            ver1=ver1.substring(i+1,ver1.length);
-            console.log(ver1);
-            break;
+        else {
+            for (i = 0; i < ver1.length; i++) {
+                if (parseInt(ver1.charAt(i)) <= 9) {
+                    ver1 = ver1.substring(i + 1, ver1.length);
+                    console.log(ver1);
+                    break;
+                }
+            }
+            for (i = 0; i < ver2.length; i++) {
+                console.log(ver2.charAt(i).parseInt);
+                if (parseInt(ver2.charAt(i)) <= 9) {
+                    ver2 = ver2.substring(i + 1, ver2.length);
+                    break;
+                }
+            }
         }
-      }  
-    for(i=0;i<ver2.length;i++){
-        console.log(ver2.charAt(i).parseInt);
-        if(parseInt(ver2.charAt(i))<=9){
-            ver2=ver2.substring(i+1,ver2.length);  
-            break;
-        }
-    }
-   }
-    var ver1pre = parseFloat(ver1);
-    var ver2pre = parseFloat(ver2);
-    var ver1next =  ver1.replace(ver1pre + ".","");
-    var ver2next =  ver2.replace(ver2pre + ".","");
-    if(ver1pre > ver2pre){
-        return true;
-    }else if(ver1pre < ver2pre){
-        return false;
-    }else{
-        if(ver1next >= ver2next){
+        var ver1pre = parseFloat(ver1);
+        var ver2pre = parseFloat(ver2);
+        var ver1next = ver1.replace(ver1pre + ".", "");
+        var ver2next = ver2.replace(ver2pre + ".", "");
+        if (ver1pre > ver2pre) {
             return true;
-        }else{
+        } else if (ver1pre < ver2pre) {
             return false;
+        } else {
+            if (ver1next >= ver2next) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
-}
-console.log("前者大返回true")
-console.log("1.2.5c,1.2.5b"+verfunegt("1.2.5c","1.2.5b"));
-console.log("1.1.1,1.2.6"+verfunegt("1.1.1","1.2.6"));
-console.log("v1.2,v1.2.3"+verfunegt("v1.2","v1.2.3"));
-console.log("sadv1.2.3,saddfv1.2"+verfunegt("sadv1.2.3","saddfv1.2"));
-    </script>
+    console.log("前者大返回true")
+    console.log("1.2.5c,1.2.5b" + verfunegt("1.2.5c", "1.2.5b"));
+    console.log("1.1.1,1.2.6" + verfunegt("1.1.1", "1.2.6"));
+    console.log("v1.2,v1.2.3" + verfunegt("v1.2", "v1.2.3"));
+    console.log("sadv1.2.3,saddfv1.2" + verfunegt("sadv1.2.3", "saddfv1.2"));
+</script>
 </body>
 </html>
