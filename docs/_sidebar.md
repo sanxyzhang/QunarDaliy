@@ -55,3 +55,6 @@
 * [Fifty-fifth](daliy/fifty-fifth.md)
 * [Fifty-sixth](daliy/fifty-sixth.md)
 * [web安全模块](daliy/web安全模块.md)
+* [Linux](daliy/linux整理.md)
+* [正则](daliy/RegExp.md)
+* [笔试题](daliy/problem.md)

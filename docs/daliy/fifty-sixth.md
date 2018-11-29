@@ -116,5 +116,22 @@ define(function(require) {
 * 其模块功能主要由两个命令构成：export和import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。
 * export default命令，为模块指定默认输出，对应的import语句不需要使用大括号。
 
+### bind与箭头函数
+* 方法1和4都有共同的问题：如果父组件重新render后，给到子组件的属性是一个新的函数实例，而并非完全相同的实例，这样即使子组件是pure-rendering component，也不能起到优化作用。2和3都在this上绑定了bind后的实例，所以重新render也不会导致子组件属性变化
+```javascript
+//写法1：
+<XXView xxxx={this.xxA.bind(this)} />
+//写法2：
+constructor(props) {
+    super(props);
+    this.xxA= this.xxA.bind(this);
+  }
 
+//写法3：
+xxA = ()=>{};
+<XXView xxxx={this.xxA} />
+
+//写法4：
+<XXView xxxx={()=>this.xxA()} />
+```
 #### 5. ES6 模块与 CommonJS 模块的差异

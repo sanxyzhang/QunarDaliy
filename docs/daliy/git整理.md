@@ -53,3 +53,31 @@
 #### git diff
 * 比较的是工作目录中当前文件和暂存区域快照之间的差异，也就是修改之后还没有暂存起来的变化内容。
 * 若要看已经暂存起来的文件和上次提交时的快照之间的差异，可以用 git diff --cached 命令
+
+#### git rm
+* git rm --cached filename 仅从缓存区删除文件，工作区保留
+
+
+### git log
+* 简约单行展示：git log --pretty=oneline
+* -p	按补丁格式显示每个更新之间的差异。
+
+### 撤销操作
+* git reset HEAD <file>...  取消暂存区的文件，回到未add的状态
+* git checkout -- filename
+* git commit --amend
+有时候我们提交完了才发现漏掉了几个文件没有加，或者提交信息写错了。想要撤消刚才的提交操作，可以使用 --amend 选项重新提交，此命令将使用当前的暂存区域快照提交
+* git branch -d deleteBranch 删除分支
+### git设置别名
+* git config --global alias.m  commit
+* git config --global alias.a  add
+* git config --global alias.l  pull
+* git config --global alias.s push
+* git config --global alias.co checkout
+* git config --global alias.m commit
+
+### 便捷操作
+* git checkout -b new-branch
+相当于 git branch new-branch + git checkout new-branch
+* git commit -a -m "first commit"
+相当于 git add . + git commit -m "first commit"
