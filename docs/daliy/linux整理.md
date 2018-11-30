@@ -48,11 +48,9 @@
 
 ### curl
 * 登录
-* curl -XPOST -c cookie.txt -d 'username=graduate&password=graduate_password' l-marmotui1.wap.beta.cn0.qunar.com:1853/graduate/api/login
 
 
 * 提交 
-* curl -XPOST -H 'Content-type':'application/json' -d '{"name":"zhangyue","mobile":"110","people_num":"1"}' -b cookie.txt l-marmotui1.wap.beta.cn0.qunar.com:1853/graduate/api/submit
 
 ### wc
 * wc [-clw][--help][--version][文件...]
