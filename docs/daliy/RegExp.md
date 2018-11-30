@@ -173,6 +173,7 @@ d
 * 第一个参数arg1表示匹配的整体，arg2表示第一个子表达式，arg3表示第二个子表达式，接下来的参数arg4是一个整数，声明了表示子匹配在 stringObject 中出现的位置。最后一个参数是 stringObject 本身
 
 * 转为驼峰化
+
 ```javascript
  function camelize (str) {
       return str.replace(/[-_\s]+(.)?/g, function (match, c) {
@@ -183,6 +184,7 @@ d
   // => "MozTransform"
 ```
 ### 正则优先级
+
 1. 转义符\
 2. 括号和方括号 (...)、(?:...)、(?=...)、(?!...)、[...]
 3. 量词限定符 {m}、{m,n}、{m,}、?、*、+
